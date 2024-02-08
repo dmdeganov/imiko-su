@@ -15,6 +15,7 @@ import IphoneImage from '@/components/sequnces/iphone-sequence/IphoneImage';
 import LaptopImage from '@/components/sequnces/laptop-sequence/LaptopImage';
 import Contact from '@/components/Contact';
 import {WindowSizeContext} from '@/app/WindowSizeContextProvider';
+import MobileFooter from '@/components/MobileFooter';
 
 const threshold = 10;
 const mobileFooterHeight = 160;
@@ -107,16 +108,7 @@ const Page = () => {
           <Contact />
           <LaptopImage hidden={areImagesForLaptopSequenceLoaded} />
         </section>
-        <footer className="main-slider__footer">
-          ООО <b>ИМИКО</b>
-          <br />
-          ИНН <b>7813670710</b>
-          <br />
-          197110, город Санкт-Петербург,
-          <br /> ул Большая Зеленина,
-          <br />
-          д. 24 стр. 1, помещ. 193-н
-        </footer>
+        <MobileFooter />
       </div>
       <LaptopCanvas
         currentSlide={currentSlide}
