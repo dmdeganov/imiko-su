@@ -40,9 +40,9 @@ const Projects = ({isInView}: {isInView: boolean}) => {
           <Image src="/fax.png" alt="Invoice Creator Logo" width={120} height={120} />
           <h3>Fax</h3>
           <p>
-            Приложение для
+            Приложение для создания
             <br />
-            отправки факсов
+            и отправки факсов
           </p>
         </motion.article>
         <motion.article className="project-card" variants={project}>
