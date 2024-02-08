@@ -55,11 +55,10 @@ const About = ({isInView}: {isInView: boolean}) => {
           <span className="text-gradient">возможностями.</span>
         </motion.span>
         <motion.p className="about__goal" variants={item}>
-          Наша цель – <span className="text-primary">№1</span> в категории{' '}
-          <span className="text-primary">Утилиты.</span>
+          Наша цель – <span className="text-primary">никогда</span> не останавливаться
         </motion.p>
         <motion.p className="about__bottom" variants={item}>
-          <span>Быстро. Легко. Успешно.</span>
+          <span>Быстро. Легко. Качественно.</span>
         </motion.p>
       </motion.div>
     </div>

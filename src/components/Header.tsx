@@ -52,7 +52,7 @@ const Header = ({currentSlide, sliderRef}: {currentSlide: number; sliderRef: Rea
             <div className="link__underline" />
           </button>
         </nav>
-        <OutlinedButton onClick={() => scrollToElementWithId('contact-us')}>Работа с нами</OutlinedButton>
+        <OutlinedButton onClick={() => scrollToElementWithId('contact-us')}>Связаться с нами</OutlinedButton>
       </div>
     </header>
   );

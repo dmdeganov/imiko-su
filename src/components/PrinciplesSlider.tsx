@@ -1,6 +1,8 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import {motion, useScroll, useTransform, useSpring} from 'framer-motion';
 import {WindowSizeContext} from '@/app/WindowSizeContextProvider';
+import {principlesTexts} from '@/components/principlesTexts';
+import PrincipleCard from '@/components/PrincipleCard';
 
 let timeoutId = 0;
 
@@ -36,7 +38,11 @@ const PrinciplesSlider = () => {
     [0, 0.5, 1],
     isMobileWidth ? ['0%', '50%', '100%'] : ['0%', '100%', '0%'],
   );
-  const backgroundPosition = useTransform(scrollXProgress, [0, 0.499, 0.5, 1], isMobileWidth ? ['right', 'right', 'right', 'right'] :['right', 'right', 'left', 'left']);
+  const backgroundPosition = useTransform(
+    scrollXProgress,
+    [0, 0.499, 0.5, 1],
+    isMobileWidth ? ['right', 'right', 'right', 'right'] : ['right', 'right', 'left', 'left'],
+  );
 
   function eventWheel(e: WheelEvent) {
     if (!ref.current) return;
@@ -74,42 +80,9 @@ const PrinciplesSlider = () => {
       <div className="principles-slider" ref={ref}>
         <div className="principles-slider__slide" />
         <div className="principles-slider__slide principles-grid">
-          <motion.div
-            className="principle-card"
-            animate={{scale: scaleCard}}
-            transition={{duration: 0.2, ease: 'easeOut'}}
-          >
-            <h3>Просто</h3>
-            <p>
-              <span className="text-primary">Наш фокус</span> – создание мобильных приложений, которые не только легки в
-              использовании, но и несут огромную пользу для миллионов пользователей по всему миру.
-            </p>
-          </motion.div>
-          <motion.div
-            className="principle-card"
-            animate={{scale: scaleCard}}
-            transition={{duration: 0.2, ease: 'easeOut'}}
-          >
-            <h3>Современно</h3>
-            <p>
-              <span className="text-primary">Будущее </span> – за гибкими рабочими моделями. Наша удаленная рабочая
-              культура предназначена для современных профессионалов, которые ценят свободу, гибкость и возможность
-              вносить свой вклад из любой точки мира.
-            </p>
-          </motion.div>
-          <motion.div
-            className="principle-card"
-            animate={{scale: scaleCard}}
-            transition={{duration: 0.2, ease: 'easeOut'}}
-          >
-            <h3>Успешно</h3>
-            <p>
-              <span className="text-primary">Финансовый Успех</span> – часть нашей ДНК! Мы понимаем, что успех в
-              современном мире мобильных технологий тесно связан не только с инновациями и пользой для пользователей, но
-              и с финансовой выгодой. Наш подход к бизнесу уникален тем, что мы всегда стремимся к увеличению доходов и
-              рентабельности наших проектов.
-            </p>
-          </motion.div>
+          {principlesTexts.map(({title, text}) => (
+            <PrincipleCard title={title} text={text} scale={scaleCard} key={title} />
+          ))}
         </div>
         <div className="principles-slider__slide" />
       </div>

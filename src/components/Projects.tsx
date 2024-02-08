@@ -26,7 +26,7 @@ const Projects = ({isInView}: {isInView: boolean}) => {
           Наши <span className="text-gradient">проекты</span>
         </h2>
         <div>
-          <Image src="/app-store.svg" width={120} height={120} alt="app-store"/>
+          <Image src="/app-store.svg" width={120} height={120} alt="app-store" />
           <Image src="/playmarket.svg" width={120} height={120} alt="playmarket" />
         </div>
       </hgroup>
@@ -37,11 +37,12 @@ const Projects = ({isInView}: {isInView: boolean}) => {
         animate={isInView ? 'inView' : 'outsideView'}
       >
         <motion.article className="project-card" variants={project}>
-          <Image src="/wi-fi-scanner.png" alt="Wi-Fi Scanner Logo" width={120} height={120} />
-          <h3>Wi-Fi Scanner</h3>
+          <Image src="/fax.png" alt="Invoice Creator Logo" width={120} height={120} />
+          <h3>Fax</h3>
           <p>
-            Приложение для сканирования
-            <br /> скрытых устройств по сети Wi-Fi
+            Приложение для
+            <br />
+            отправки факсов
           </p>
         </motion.article>
         <motion.article className="project-card" variants={project}>
@@ -50,14 +51,6 @@ const Projects = ({isInView}: {isInView: boolean}) => {
           <p>
             Приложение для создания
             <br /> и отправки инвойсов
-          </p>
-        </motion.article>
-        <motion.article className="project-card" variants={project}>
-          <Image src="/bluetooth-radar.png" alt="Bluetooth Radar Logo" width={120} height={120} />
-          <h3>Bluetooth Radar</h3>
-          <p>
-            Приложение для сканирования
-            <br /> скрытых устройств по сети Bluetooth
           </p>
         </motion.article>
         <motion.article className="project-card" variants={project}>

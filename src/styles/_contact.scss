@@ -48,9 +48,11 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, min-content) max-content;
     row-gap: 20px;
+    h2{
+      margin-bottom: 32px;
+    }
     &__email {
       position: static;
-      margin-top: 16px;
       display: inline-block;
     }
     .copyright{
@@ -63,6 +65,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, min-content) max-content;
     row-gap: 20px;
+    padding-top: 24px;
 
     h2 {
       @include font(42);
@@ -78,6 +81,9 @@
     }
     .copyright {
       display: none;
+    }
+    @media only screen and (max-height: 680px) {
+      padding-top: 16px;
     }
   }
 }

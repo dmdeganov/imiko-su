@@ -101,9 +101,10 @@ const ContactUsForm = () => {
           render={({field}) => (
             <TextField
               {...field}
-              label="Вакансия"
+              label="Ваш запрос"
               ref={null}
-              placeholder="Например iOS Developer"
+              multiline
+              placeholder="Ваше сообщение"
               {...getInputValidationProps('position')}
             />
           )}

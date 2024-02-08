@@ -9,6 +9,7 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, '
   ref: null;
   type?: string;
   isValid?: boolean;
+  multiline?: boolean;
 }
 
 const TextField: React.FC<InputProps> = ({
@@ -19,6 +20,7 @@ const TextField: React.FC<InputProps> = ({
   value,
   onChange,
   isValid,
+  multiline,
   ...rest
 }) => {
   return (
@@ -47,6 +49,8 @@ const TextField: React.FC<InputProps> = ({
       onChange={onChange}
       inputProps={{'aria-invalid': !isValid}}
       variant="standard"
+      multiline={multiline}
+      minRows={multiline ? 3 : undefined}
       {...rest}
     />
   );
@@ -55,10 +59,10 @@ const TextField: React.FC<InputProps> = ({
 export default TextField;
 
 export const muiTextFieldFloatLabelSx = {
-  '&': {
-    // minHeight: '85px',
+  '.MuiInputBase-multiline textarea': {
+    paddingTop: '16px',
   },
-  '.MuiInputBase-root': {
+  '.MuiInputBase-root:not(.MuiInputBase-multiline)': {
     height: '62px',
     boxSizing: 'border-box',
   },

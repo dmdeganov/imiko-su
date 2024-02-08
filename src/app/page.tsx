@@ -13,6 +13,7 @@ import IphoneCanvas from '@/components/sequnces/iphone-sequence/IphoneCanvas';
 import LaptopCanvas from '@/components/sequnces/laptop-sequence/LaptopCanvas';
 import IphoneImage from '@/components/sequnces/iphone-sequence/IphoneImage';
 import LaptopImage from '@/components/sequnces/laptop-sequence/LaptopImage';
+import Contact from '@/components/Contact';
 
 const scrollYMap: {[k: number]: number} = {
   0: 0,
@@ -93,27 +94,7 @@ const Page = () => {
           <Projects isInView={currentSlide === 2} />
         </section>
         <section className="main-slider__slide" id="contact-us">
-          <div className="contact">
-            <hgroup>
-              <h2>
-                <span className="text-gradient">Работа</span>
-                <span> с нами</span>
-              </h2>
-              <a className="contact__email" href="mailto:we@ezmoney.studio">
-                we@ezmoney.studio
-              </a>
-            </hgroup>
-            <h3>
-              Написать <span className="text-gradient">нам</span>
-            </h3>
-            <ContactUsForm />
-            <p className="copyright">
-              Copyright © 2024 <b>EasyMoney Agency.</b> All Right Reserved
-            </p>
-          </div>
-          <p className="copyright-mobile">
-            Copyright © 2024 <b>EasyMoney Agency.</b> All Right Reserved
-          </p>
+          <Contact />
           <LaptopImage hidden={areImagesForLaptopSequenceLoaded} />
         </section>
       </div>
