@@ -1,0 +1,140 @@
+@use 'variables' as *;
+.principles {
+  display: grid;
+  height: 100%;
+  position: relative;
+  &__hero {
+    z-index: -10;
+    position: absolute;
+    top: calc(50% - #{$header-height/2});
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__hero-text {
+    font-weight: 600;
+    line-height: 1;
+    display: inline;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(2, 1, 2, 0) 32.68%, rgba(2, 1, 2, 0.5) 80%) no-repeat,
+      linear-gradient(180deg, #e3fd52 0%, #e3fd52 100%) no-repeat;
+    -webkit-text-stroke: 1.5px #ffffff80;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @include font(192);
+  }
+  @media only screen and (max-width: 1280px) {
+    &__hero {
+
+      h2 {
+        @include font(96);
+      }
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    &__hero {
+      top: 40px;
+      left: 0;
+      transform: unset;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      h2 {
+        @include font(71);
+      }
+    }
+  }
+}
+
+.principles-slider {
+  display: flex;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    height: 100%;
+    &:first-of-type,
+    &:last-of-type {
+      width: 100vw;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    &__slide {
+      &:first-of-type,
+      &:last-of-type {
+        width: 32px;
+      }
+    }
+  }
+}
+.principles-grid {
+  display: grid;
+  place-content: center;
+  grid-template-rows: repeat(2, min-content);
+  grid-template-columns: repeat(3, 620px);
+  grid-gap: 48px;
+  overflow: hidden;
+  @media only screen and (max-width: 1280px) {
+    grid-template-columns: repeat(3, 500px);
+  }
+  @media only screen and (max-width: 640px) {
+    grid-template-columns: repeat(3, 85vw);
+    grid-template-rows: min-content;
+    grid-gap: 20px;
+    place-content: unset;
+    padding-top: 150px;
+  }
+}
+.principle-card {
+  background: $surface-container;
+  border-radius: 6rem;
+  place-content: center;
+  padding: 4.8rem;
+
+  h3 {
+    @include fontRem(6.2);
+    margin-bottom: 3.2rem;
+  }
+  p {
+    @include fontRem(2.2);
+    line-height: 120%;
+  }
+
+  &:nth-child(1) {
+    align-self: flex-end;
+  }
+
+  &:nth-child(2) {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    align-self: flex-start;
+  }
+  &:nth-child(3) {
+    align-self: flex-end;
+    grid-column: 3/4;
+  }
+  @media only screen and (max-width: 1280px) {
+    padding: 32px;
+
+  }
+  @media only screen and (max-width: 640px) {
+    padding: 16px;
+    border-radius: 20px;
+    &:nth-child(n) {
+      grid-row: unset;
+      grid-column: unset;
+      align-self: unset;
+    }
+    h3 {
+      @include font(32);
+      margin-bottom: 16px;
+    }
+    p {
+      @include font(16);
+      line-height: 120%;
+    }
+  }
+}

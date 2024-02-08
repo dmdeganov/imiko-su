@@ -1,0 +1,135 @@
+@use 'variables' as *;
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  h2 {
+    @include fontRem(7.2);
+  }
+  hgroup {
+    margin: 80px 0 46px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    div {
+      display: flex;
+      gap: 3.2rem;
+    }
+    img {
+      width: 12rem;
+      height: 12rem;
+      display: block;
+    }
+  }
+
+  @media only screen and (max-width: 1280px) {
+    padding-right: 48px;
+    h2 {
+      @include fontRem(6.4);
+    }
+    hgroup {
+      margin: 64px 0 40px;
+      img {
+        width: 10rem;
+        height: 10rem;
+      }
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    padding-right: 0;
+    hgroup {
+      margin: 40px 0;
+      div {
+        column-gap: 12px;
+      }
+      h2 {
+        @include font(42);
+      }
+
+      img {
+        width: 84px;
+        height: 84px;
+      }
+    }
+  }
+  @media only screen and (max-height: 800px) {
+    justify-content: space-evenly;
+    hgroup {
+      margin: 0;
+    }
+  }
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+
+  @media only screen and (max-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+    .project-card {
+      &:nth-child(3),
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+  }
+}
+.project-card {
+  background-color: $surface-container;
+  padding: 3.2rem;
+  border-radius: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    margin-bottom: 2.8rem;
+    width: 11rem;
+    height: 11rem;
+    border-radius: 20px;
+  }
+  h3 {
+    @include fontRem(3.2);
+    margin-bottom: 1.2rem;
+  }
+  p {
+    color: $on-surface-70;
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: max(1.6rem, 14px);
+    line-height: 120%;
+    text-align: center;
+  }
+  &:last-of-type {
+    display: grid;
+    place-items: center;
+    span {
+      @include fontRem(3.2);
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    border-radius: 20px;
+    padding: 16px;
+    img {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 16px;
+    }
+    h3 {
+      @include font(18);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    p {
+      @include font(14);
+    }
+    &:last-of-type {
+      display: grid;
+      place-items: center;
+      span {
+        @include font(18);
+        max-width: 80px;
+        text-align: center;
+      }
+    }
+  }
+}

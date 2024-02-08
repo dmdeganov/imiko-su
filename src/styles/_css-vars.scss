@@ -1,0 +1,39 @@
+:root {
+  font-size: 10px;
+
+  @media (max-height: 950px) {
+    font-size: 9.5px;
+  }
+  @media (max-height: 900px) {
+    font-size: 9px;
+  }
+
+  @media (max-height: 850px) {
+    font-size: 8.5px;
+  }
+
+  @media (max-height: 800px) {
+    font-size: 8px;
+  }
+}
+:root {
+  --surface: #0c0b0c;
+  --surface-container: #161516;
+  --on-surface: #fff;
+  --on-surface-70: rgba(255, 255, 255, 0.7);
+  --on-surface-50: rgba(255, 255, 255, 0.5);
+  --primary: #e3fd52;
+  --input-error: #d32f2f;
+
+  --content-mw: min(1440px, calc(100vw - 160px));
+  --header-height: 9.6rem;
+
+  @media only screen and (max-width: 1280px) {
+    --content-mw: min(1440px, calc(100vw - 64px));
+  }
+
+  @media only screen and (max-width: 640px) {
+    --content-mw: calc(100vw - 40px);
+    --header-height: 64px;
+  }
+}

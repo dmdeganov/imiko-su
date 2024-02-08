@@ -1,0 +1,70 @@
+@use 'variables' as *;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: $surface;
+
+  //display: none;
+}
+.header-inner {
+  max-width: $content-mw;
+  height: $header-height;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    cursor: not-allowed;
+  }
+  nav {
+    display: flex;
+    column-gap: 32px;
+  }
+  @media only screen and (max-width: 640px) {
+  }
+  @media only screen and (max-width: 640px) {
+    height: 64px;
+  }
+}
+.link {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 8px;
+  background: transparent;
+  border: none;
+  color: $on-surface;
+  @include font(16);
+  font-weight: $regular;
+
+  &__underline {
+    transition: transform 0.3s, opacity 0.1s;
+    opacity: 0;
+    width: 2px;
+    height: 2px;
+    background-color: $primary;
+  }
+  a {
+    @include font(16);
+    font-weight: $regular;
+  }
+  &--active {
+    .link__underline {
+      opacity: 1;
+      transform: scaleX(12.5);
+    }
+  }
+
+  &:hover {
+    .link__underline {
+      opacity: 1;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    display: none;
+  }
+}
