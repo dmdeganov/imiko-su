@@ -2,10 +2,7 @@ import React, {useRef} from 'react';
 import {motion} from 'framer-motion';
 
 const About = ({isInView}: {isInView: boolean}) => {
-  // const [variant, setVariant] = useState<'inView' | 'outsideView'>('outsideView');
   const ref = useRef<HTMLParagraphElement>(null);
-  // const isInView = useInView(ref, {margin: '-50% 0px 0px 0px', root: sliderRef});
-  // const isInView = useInView(ref, {root: sliderRef, margin: '50px 0px'});
   const container = {
     outsideView: {opacity: 0, transition: {duration: 0.1, when: 'beforeChildren'}},
     inView: {
@@ -27,14 +24,6 @@ const About = ({isInView}: {isInView: boolean}) => {
     },
   };
 
-  // useEffect(() => {
-  //   if (isInView) {
-  //     setVariant('inView');
-  //   } else {
-  //     setVariant('outsideView');
-  //   }
-  // }, [isInView]);
-
   return (
     <div className="about">
       <motion.div
@@ -55,10 +44,10 @@ const About = ({isInView}: {isInView: boolean}) => {
           <span className="text-gradient">возможностями.</span>
         </motion.span>
         <motion.p className="about__goal" variants={item}>
-          Наша цель – <span className="text-primary">никогда</span> не останавливаться
+          Наша цель –никогда <span className="text-primary">не останавливаться.</span>
         </motion.p>
         <motion.p className="about__bottom" variants={item}>
-          <span>Быстро. Легко. Качественно.</span>
+          <span>Быстро.&nbsp;&nbsp;Легко.&nbsp;&nbsp;Качественно.</span>
         </motion.p>
       </motion.div>
     </div>

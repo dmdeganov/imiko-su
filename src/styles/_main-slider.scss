@@ -8,6 +8,7 @@
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   align-items: stretch;
+  row-gap: 16px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -19,7 +20,8 @@
     min-height: 100%;
     max-height: 100%;
     scroll-snap-align: center;
-    overflow-x: hidden;
+    overflow: hidden;
+
     & > div {
       height: 100%;
     }
@@ -28,15 +30,20 @@
         padding-bottom: unset;
       }
     }
-    &:nth-of-type(1),
-    &:nth-of-type(2),
-    &:nth-of-type(5) {
-      overflow: hidden;
-    }
   }
+  &__footer {
+    display: none;
+  }
+
   #principles {
     padding: $header-height 0 0;
   }
+  //#contact-us{
+  //  overflow-y: scroll;
+  //  &::-webkit-scrollbar {
+  //    display: none;
+  //  }
+  //}
 
   h1,
   h2,
@@ -48,9 +55,20 @@
     line-height: 1;
   }
   @media only screen and (max-width: 640px) {
-    row-gap: 16px;
     &__slide {
       padding-bottom: 40px;
+    }
+    &__footer {
+      text-align: right;
+      color: $on-surface-50;
+      display: block;
+      scroll-snap-stop: always;
+      scroll-snap-align: end;
+      padding: 0px 20px 64px;
+      b{
+        font-weight: $regular;
+        color: $on-surface;
+      }
     }
   }
 }

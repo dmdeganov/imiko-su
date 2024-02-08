@@ -1,8 +1,8 @@
 'use client';
-import React, {useRef, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useRef, useState} from 'react';
 import Header from '@/components/Header';
 import PrinciplesSlider from '@/components/PrinciplesSlider';
-import {useScroll, useMotionValueEvent} from 'framer-motion';
+import {useScroll, useMotionValueEvent, isMotionValue} from 'framer-motion';
 import ContactUsForm from '@/components/ContactUsForm';
 import SliderIndicator from '@/shared-ui/SliderIndicator';
 import Heading from '@/components/Heading';
@@ -14,42 +14,52 @@ import LaptopCanvas from '@/components/sequnces/laptop-sequence/LaptopCanvas';
 import IphoneImage from '@/components/sequnces/iphone-sequence/IphoneImage';
 import LaptopImage from '@/components/sequnces/laptop-sequence/LaptopImage';
 import Contact from '@/components/Contact';
+import {WindowSizeContext} from '@/app/WindowSizeContextProvider';
 
-const scrollYMap: {[k: number]: number} = {
-  0: 0,
-  1: 0.25,
-  2: 0.5,
-  3: 0.75,
-  4: 1,
-};
-
-const threshold = 0.03;
+const threshold = 10;
+const mobileFooterHeight = 160;
+const sliderRowGap = 16;
 
 const Page = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const {scrollYProgress} = useScroll({container: sliderRef});
+  const {height, isMobileWidth} = useContext(WindowSizeContext);
+  const sliderHeight = useMemo(() => height * 5 + 5 * sliderRowGap + mobileFooterHeight, [height]);
+
+  const scrollMap = useMemo(
+    () => ({
+      0: 0,
+      1: height + 16,
+      2: 2 * (height + 16),
+      3: 3 * (height + 16),
+      4: 4 * (height + 16),
+    }),
+    [height],
+  ) as {[k: number]: number};
+
+  const {scrollY} = useScroll({container: sliderRef});
   const [currentSlide, setCurrentSlide] = useState(0);
   const prevScrollY = useRef<number>(0);
 
-  const onScrollYChange = (scrollY: number) => {
-    const direction = scrollY > prevScrollY.current ? 'down' : 'up';
+  const onScrollYChange = (scroll: number) => {
+    console.log(Math.round(scroll), Math.round(prevScrollY.current));
+    const direction = scroll > prevScrollY.current ? 'down' : 'up';
     if (direction === 'down') {
-      if (scrollY > scrollYMap[currentSlide] + threshold) {
+      if (scroll > scrollMap[currentSlide] + threshold) {
         setCurrentSlide(prev => {
           return Math.min(4, prev + 1);
         });
       }
     }
     if (direction === 'up') {
-      if (scrollY < scrollYMap[currentSlide] - threshold) {
+      if (scroll < scrollMap[currentSlide] - threshold) {
         setCurrentSlide(prev => Math.max(0, prev - 1));
       }
     }
-    prevScrollY.current = scrollY;
+    prevScrollY.current = scroll;
   };
 
-  const onScrollYChangeThrottled = useThrottle(onScrollYChange, 50);
-  useMotionValueEvent(scrollYProgress, 'change', onScrollYChangeThrottled);
+  const onScrollYChangeThrottled = useThrottle(onScrollYChange, 32);
+  useMotionValueEvent(scrollY, 'change', onScrollYChangeThrottled);
 
   const onWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     if (e.deltaY === 100) {
@@ -97,6 +107,16 @@ const Page = () => {
           <Contact />
           <LaptopImage hidden={areImagesForLaptopSequenceLoaded} />
         </section>
+        <footer className="main-slider__footer">
+          ООО <b>ИМИКО</b>
+          <br />
+          ИНН <b>7813670710</b>
+          <br />
+          197110, город Санкт-Петербург,
+          <br /> ул Большая Зеленина,
+          <br />
+          д. 24 стр. 1, помещ. 193-н
+        </footer>
       </div>
       <LaptopCanvas
         currentSlide={currentSlide}

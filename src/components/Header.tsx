@@ -28,7 +28,7 @@ const Header = ({currentSlide, sliderRef}: {currentSlide: number; sliderRef: Rea
   return (
     <header>
       <div className="header-inner" ref={headerRef}>
-        <Image src="/logo.svg" alt="Easy Money Logo" width={81} height={30} />
+        <Image src="/logo.svg" alt="IMIKO logo" width={81} height={30} />
         <nav>
           <button
             className={`link ${[0, 1].includes(currentSlide) ? ' link--active' : ''}`}

@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 .contact {
-  padding: 8rem 0;
+  padding: 6rem 0;
   overflow: hidden;
   display: grid;
   position: relative;
@@ -17,11 +17,31 @@
   hgroup {
     position: relative;
   }
-  &__email {
-    position: absolute;
-    bottom: calc(-3.2rem - 20px);
-    left: 0;
-    color: $on-surface-50;
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    a {
+      color: $on-surface-50;
+    }
+  }
+  &__footer {
+    grid-column: 2/3;
+    max-width: 390px;
+    p {
+      color: $on-surface-50;
+      @include font(14);
+      letter-spacing: 0.5px;
+      line-height: 150%;
+      font-variant-numeric: tabular-nums;
+    }
+    p:first-of-type {
+      margin-bottom: 16px;
+    }
+    b {
+      color: $on-surface;
+      font-weight: $regular;
+    }
   }
 
   h3 {
@@ -30,41 +50,35 @@
     align-self: flex-end;
   }
 
-  .copyright {
-    grid-column: 2/3;
-    color: $on-surface-50;
-    @include font(16);
-    letter-spacing: 0.16px;
-    b {
-      color: $on-surface;
-      font-weight: $regular;
-    }
-  }
   @media only screen and (max-width: 1140px) {
     column-gap: 64px;
-    padding-top: 40px;
+    padding: 40px 0;
+  }
+  @media only screen and (max-width: 1050px) {
+    grid-template-columns: 380px 1fr;
+    h3 {
+      align-self: center;
+    }
   }
   @media only screen and (max-width: 960px) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, min-content) max-content;
     row-gap: 20px;
-    h2{
+    h2 {
       margin-bottom: 32px;
     }
-    &__email {
+    &__contacts {
       position: static;
-      display: inline-block;
     }
-    .copyright{
+    .copyright {
       grid-column: 1/2;
       text-align: right;
-
     }
   }
   @media only screen and (max-width: 640px) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, min-content) max-content;
-    row-gap: 20px;
+    row-gap: 12px;
     padding-top: 24px;
 
     h2 {
@@ -72,15 +86,22 @@
       max-width: 130px;
       margin-bottom: 16px;
     }
-    &__email {
+    &__contacts {
+      grid-row: 2/3;
       position: static;
+      a:last-of-type {
+        display: none;
+      }
     }
     h3 {
       margin-top: 28px;
       @include font(28);
     }
-    .copyright {
+    &__footer {
       display: none;
+    }
+    &__contacts {
+
     }
     @media only screen and (max-height: 680px) {
       padding-top: 16px;
