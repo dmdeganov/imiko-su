@@ -50,11 +50,11 @@
     align-self: flex-end;
   }
 
-  @media only screen and (max-width: 1140px) {
+  @media only screen and (max-width: 1280px) {
     column-gap: 64px;
     padding: 40px 0;
   }
-  @media only screen and (max-width: 1050px) {
+  @media only screen and (max-width: 1140px) {
     grid-template-columns: 380px 1fr;
     h3 {
       align-self: center;
@@ -67,9 +67,16 @@
     h2 {
       margin-bottom: 32px;
     }
-    &__contacts {
-      position: static;
+    h3{
+      display: none;
     }
+    &__contacts {
+      grid-column: 1/2;
+    }
+    &__footer{
+      align-self: flex-end;
+    }
+
     .copyright {
       grid-column: 1/2;
       text-align: right;

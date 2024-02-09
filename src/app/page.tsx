@@ -42,7 +42,6 @@ const Page = () => {
   const prevScrollY = useRef<number>(0);
 
   const onScrollYChange = (scroll: number) => {
-    console.log(Math.round(scroll), Math.round(prevScrollY.current));
     const direction = scroll > prevScrollY.current ? 'down' : 'up';
     if (direction === 'down') {
       if (scroll > scrollMap[currentSlide] + threshold) {
