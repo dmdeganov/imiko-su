@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
   const mailOptions: Mail.Options = {
     from: process.env.MY_EMAIL,
-    to: process.env.VAME_EMAIL,
+    to: process.env.IMIKO_SU_EMAIL,
     subject,
     text,
   };
