@@ -23,7 +23,10 @@ const Contact = () => {
         </h3>
         <div className="contact__contacts">
           <a href="mailto:info@imiko.su">info@imiko.su</a>
-          <a href="tel:+79602477050">+7 960 247 70 50</a>
+          <div className="contact__phones">
+            <a href="tel:+79602477050">+7 960 247 70 50</a>
+            <a href="tel:+79268978415">+7 926 897 84 15</a>
+          </div>
         </div>
         <ContactUsForm />
         <div className={`${poppins.className} contact__footer`}>
@@ -31,6 +34,10 @@ const Contact = () => {
             ООО <b>ИМИКО</b> ИНН <b>7813670710</b>
           </p>
           <p>197110, город Санкт-Петербург, ул Большая Зеленина, д. 24 стр. 1, помещ. 193-н</p>
+          <div className="contact__footer tablet-phones">
+            <a href="tel:+79602477050">+7 960 247 70 50</a>
+            <a href="tel:+79268978415">+7 926 897 84 15</a>
+          </div>
         </div>
       </div>
       {/*<p className="copyright-mobile">/!*Copyright © 2024 <b>EasyMoney Agency.</b> All Right Reserved*!/</p>*/}

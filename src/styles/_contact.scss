@@ -25,6 +25,10 @@
       color: $on-surface-50;
     }
   }
+  &__phones {
+    display: flex;
+    column-gap: 24px;
+  }
   &__footer {
     grid-column: 2/3;
     max-width: 390px;
@@ -41,6 +45,15 @@
     b {
       color: $on-surface;
       font-weight: $regular;
+    }
+    .tablet-phones {
+      display: none;
+      @media only screen and (min-width: 640px) and (max-width: 960px) {
+        display: flex;
+        gap: 16px;
+        @include font(14);
+
+      }
     }
   }
 
@@ -67,13 +80,16 @@
     h2 {
       margin-bottom: 32px;
     }
-    h3{
+    h3 {
       display: none;
     }
     &__contacts {
       grid-column: 1/2;
     }
-    &__footer{
+    &__phones {
+      display: none;
+    }
+    &__footer {
       align-self: flex-end;
     }
 
@@ -93,12 +109,10 @@
       max-width: 130px;
       margin-bottom: 16px;
     }
+
     &__contacts {
       grid-row: 2/3;
       position: static;
-      a:last-of-type {
-        display: none;
-      }
     }
     h3 {
       margin-top: 28px;
@@ -108,7 +122,6 @@
       display: none;
     }
     &__contacts {
-
     }
     @media only screen and (max-height: 680px) {
       padding-top: 16px;
@@ -168,5 +181,12 @@
         font-weight: $regular;
       }
     }
+  }
+}
+
+.mobile-contact-footer {
+  &__phones {
+    display: flex;
+    flex-direction: column;
   }
 }
