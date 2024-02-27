@@ -15,6 +15,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en" data-font_weightiness="thinner">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="robots" content="noindex, nofollow"/>
         <title>IMIKO</title>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta
